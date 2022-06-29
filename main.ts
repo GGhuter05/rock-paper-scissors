@@ -1,4 +1,3 @@
-let hand = 0
 input.onPinPressed(TouchPin.P0, function () {
     basic.showLeds(`
         # # # # #
@@ -7,6 +6,7 @@ input.onPinPressed(TouchPin.P0, function () {
         # . . . #
         # # # # #
         `)
+    basic.clearScreen()
     basic.pause(2000)
     hand = randint(1, 3)
     if (hand == 1) {
@@ -25,6 +25,7 @@ input.onPinPressed(TouchPin.P0, function () {
             . # # # .
             . . . . .
             `)
+        score += 1
     } else {
         basic.showLeds(`
             # # . . #
@@ -33,7 +34,9 @@ input.onPinPressed(TouchPin.P0, function () {
             # # . # .
             # # . . #
             `)
+        score += -1
     }
+    basic.showNumber(score)
 })
 input.onPinPressed(TouchPin.P2, function () {
     basic.showLeds(`
@@ -43,16 +46,18 @@ input.onPinPressed(TouchPin.P2, function () {
         # # . # .
         # # . . #
         `)
+    basic.clearScreen()
     basic.pause(2000)
     hand = randint(1, 3)
     if (hand == 1) {
         basic.showLeds(`
             # # # # #
             # . . . #
-            # . . . .
+            # . . . #
             # . . . #
             # # # # #
             `)
+        score += 1
     } else if (hand == 2) {
         basic.showLeds(`
             . . . . .
@@ -61,6 +66,7 @@ input.onPinPressed(TouchPin.P2, function () {
             . # # # .
             . . . . .
             `)
+        score += -1
     } else {
         basic.showLeds(`
             # # . . #
@@ -70,6 +76,7 @@ input.onPinPressed(TouchPin.P2, function () {
             # # . . #
             `)
     }
+    basic.showNumber(score)
 })
 input.onPinPressed(TouchPin.P1, function () {
     basic.showLeds(`
@@ -79,6 +86,7 @@ input.onPinPressed(TouchPin.P1, function () {
         . # # # .
         . . . . .
         `)
+    basic.clearScreen()
     basic.pause(2000)
     hand = randint(1, 3)
     if (hand == 1) {
@@ -89,6 +97,7 @@ input.onPinPressed(TouchPin.P1, function () {
             # . . . #
             # # # # #
             `)
+        score += -1
     } else if (hand == 2) {
         basic.showLeds(`
             . . . . .
@@ -105,8 +114,13 @@ input.onPinPressed(TouchPin.P1, function () {
             # # . # .
             # # . . #
             `)
+        score += 1
     }
+    basic.showNumber(score)
 })
+let hand = 0
+let score = 0
+score = 0
 basic.forever(function () {
 	
 })
